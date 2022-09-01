@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         binding.btnCalculate.setOnClickListener{calculateTip()}
         binding.imageViewDarkTheme.setOnClickListener {
             swapDarkTheme()
-
         }
 
         binding.textInputLayout.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
@@ -31,14 +30,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun swapDarkTheme() {
-
+//           TODO: DO SHIT
         if (darkTheme){
 
         }else{
 
         }
         darkTheme = !darkTheme
-
 
     }
 
