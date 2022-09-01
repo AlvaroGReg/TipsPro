@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/background_tint">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -11,19 +16,19 @@
         android:id="@+id/textInputLayout"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:hint="@string/cost_of_service"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtPrice"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
 
     <TextView
         android:id="@+id/textView2"
@@ -44,85 +49,134 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:checkedButton="@id/radioButton_amazing20">
 
         <RadioButton
-            android:id="@+id/radioButton_amazin20"
+            android:id="@+id/radioButton_amazing20"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/amazing_20"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:buttonTint="@color/main_color"
+
+            />
 
         <RadioButton
             android:id="@+id/radioButton_good18"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/good_18"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:buttonTint="@color/main_color" />
 
         <RadioButton
             android:id="@+id/radioButton_okay15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/okay_15"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:buttonTint="@color/main_color"/>
     </RadioGroup>
 
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/round_up_switch"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/round_up_tip"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <Button
         android:id="@+id/btn_calculate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:backgroundTint="@color/main_color"
         android:text="@string/calculate"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_roundUp" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/tip"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_tipresult"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView_tipresult"
-        app:layout_constraintTop_toTopOf="@+id/textView_tipresult" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_tipResult"
+        app:layout_constraintStart_toStartOf="@+id/textView_tipResult"
+        app:layout_constraintTop_toBottomOf="@+id/btn_calculate" />
 
     <TextView
-        android:id="@+id/textView_tipresult"
+        android:id="@+id/textView_tipResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btn_calculate"
-        app:layout_constraintStart_toStartOf="@+id/btn_calculate"
-        app:layout_constraintTop_toBottomOf="@+id/btn_calculate"
-        app:layout_constraintVertical_bias="0.100000024"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:text="20,50" />
 
+    <ImageView
+        android:id="@+id/imageView_darkTheme"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_lighttheme" />
+
+    <ImageView
+        android:id="@+id/imageView_roundIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:srcCompat="@drawable/ic_round_up" />
+
+    <ImageView
+        android:id="@+id/imageView_iconService"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2"
+        app:srcCompat="@drawable/ic_thumb" />
+
+    <ImageView
+        android:id="@+id/imageView_icShopping"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintEnd_toStartOf="@+id/textInputLayout"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+        app:srcCompat="@drawable/ic_service" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_roundUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/round_up_tip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/title"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

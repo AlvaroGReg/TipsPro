@@ -1,14 +1,19 @@
 package es.lernesto.tipscalculator
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import es.lernesto.tipscalculator.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
+    private var darkTheme : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,11 +21,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnCalculate.setOnClickListener{calculateTip()}
+        binding.imageViewDarkTheme.setOnClickListener {
+            swapDarkTheme()
+
+        }
+
+        binding.textInputLayout.setOnKeyListener { view, keyCode, _ -> handleKeyEvent(view, keyCode)
+        }
+    }
+
+    private fun swapDarkTheme() {
+
+        if (darkTheme){
+
+        }else{
+
+        }
+        darkTheme = !darkTheme
+
+
     }
 
     private fun calculateTip(){
 
-        val stringInTextField = binding.txtPrice.text.toString()
+        val stringInTextField = binding.txtPrice.text.toString().replace(',', '.')
         val cost = stringInTextField.toDoubleOrNull()
 
         if(cost == null){
@@ -35,14 +59,24 @@ class MainActivity : AppCompatActivity() {
         }
         var tip = cost * tipPercentage
 
-        if (binding.roundUpSwitch.isChecked) {
+        if (binding.switchRoundUp.isChecked) {
             tip = kotlin.math.ceil(tip)
         }
         NumberFormat.getCurrencyInstance()
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
 
-        binding.textViewTipresult.text = getString(R.string.tip_amount, formattedTip)
+        binding.textViewTipResult.text = formattedTip
     }
 
+    private fun handleKeyEvent(view: View, keyCode: Int): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER) {
+            // Hide the keyboard
+            val inputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+            return true
+        }
+        return false
+    }
 
 }
