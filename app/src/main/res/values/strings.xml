@@ -10,4 +10,5 @@
     <string name="tip_amount">Tip: %s</string>
     <string name="invalid_value">Invalid value</string>
     <string name="tip">Total tip</string>
+    <string name="title">PRO TIP CALCULATOR 3000</string>
 </resources>
