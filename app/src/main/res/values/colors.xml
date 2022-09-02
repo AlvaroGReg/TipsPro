@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Primary brand color. -->
-    <color name="icons_color">#344C11</color>
+    <color name="icons_color">#114C3B</color>
     <color name="color_on_button">#FFFFFF</color>
 
-    <color name="icons_color_dark_theme">#AEC09A</color>
+    <color name="icons_color_dark_theme">#85C043</color>
     <color name="color_on_button_dark_theme">#FFFFFF</color>
 
     <!-- Secondary brand color. -->

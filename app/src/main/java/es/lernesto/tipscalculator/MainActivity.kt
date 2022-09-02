@@ -8,6 +8,10 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.graphics.drawable.toDrawable
 import es.lernesto.tipscalculator.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
@@ -22,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnCalculate.setOnClickListener{calculateTip()}
+
         binding.imageViewDarkTheme.setOnClickListener {
             swapDarkTheme()
         }
@@ -31,12 +36,25 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun swapDarkTheme() {
-//           TODO: DO SHIT
-        if (darkTheme){
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+
+        if (darkTheme){
+
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            binding.constrainLayout.setBackgroundResource(R.drawable.background_dark)
+
+            R.id.imageView_icShopping.toDrawable().color = getColor(R.color.icons_color_dark_theme)
+            R.id.imageView_darkTheme.toDrawable().color = getColor(R.color.icons_color_dark_theme)
+            R.id.imageView_iconService.toDrawable().color = getColor(R.color.icons_color_dark_theme)
+            R.id.imageView_roundIcon.toDrawable().color = getColor(R.color.icons_color_dark_theme)
         }else{
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            binding.constrainLayout.setBackgroundResource(R.drawable.background_light)
+            
+            R.id.imageView_icShopping.toDrawable().color = getColor(R.color.icons_color)
+            R.id.imageView_darkTheme.toDrawable().color = getColor(R.color.icons_color)
+            R.id.imageView_iconService.toDrawable().color = getColor(R.color.icons_color)
+            R.id.imageView_roundIcon.toDrawable().color = getColor(R.color.icons_color)
         }
         darkTheme = !darkTheme
 

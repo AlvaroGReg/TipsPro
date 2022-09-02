@@ -12,7 +12,5 @@
         <item name="android:backgroundTint">@color/background_color</item>
         <item name="backgroundTint">@color/text_view_background_color</item>
 
-        scro
-
     </style>
 </resources>
