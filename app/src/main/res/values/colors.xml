@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="color_text">#00695C</color>
-    <color name="background_tint">#3B00AC09</color>
-    <color name="main_color">#9C27B0</color>
+    <!-- Primary brand color. -->
+    <color name="icons_color">#344C11</color>
+    <color name="color_on_button">#FFFFFF</color>
+
+    <color name="icons_color_dark_theme">#AEC09A</color>
+    <color name="color_on_button_dark_theme">#FFFFFF</color>
+
+    <!-- Secondary brand color. -->
+
+    <color name="background_color">#AEC09A</color>
+    <color name="background_variation_color">#AEC670</color>
+
+    <color name="background_color_dark_theme">#1A2902</color>
+    <color name="background_variation_color_dark_theme">#344C11</color>
+
+    <!-- Others -->
+    <color name="text_view_background_color">#AEC670</color>
+    <color name="button_color">#9F0196</color>
+    <color name="text_on_primary">#1A2902</color>
+
+    <color name="text_view_background_color_dark_theme">#2D3C18</color>
+    <color name="button_color_dark_theme">#FF008D</color>
+    <color name="text_on_primary_dark_theme">#ACFFA6</color>
+
+    <color name="testing">#00F8DB</color>
 </resources>

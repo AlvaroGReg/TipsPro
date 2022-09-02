@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import es.lernesto.tipscalculator.databinding.ActivityMainBinding
 import java.text.NumberFormat
 
@@ -32,9 +33,10 @@ class MainActivity : AppCompatActivity() {
     private fun swapDarkTheme() {
 //           TODO: DO SHIT
         if (darkTheme){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         }else{
-
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
         darkTheme = !darkTheme
 
